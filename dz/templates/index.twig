@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Goods</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+     Goods:<br>
+        <ul id="goods">
+        </ul>
+     <button id="load">load more</button>
+
+    <script>
+        function loadMore()
+        {
+            $.ajax({
+                url: '?from=0',
+                dataType: 'html',
+                success: function (html) {
+                    $('#goods').append(html);
+                }
+            })
+        }
+        loadMore();
+    </script>
+</body>
+</html>
